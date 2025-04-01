@@ -3,7 +3,6 @@ package dev.app.redis.dynamic.connection;
 /**
  * @author Anish Panthi
  */
-import java.util.concurrent.TimeUnit;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 

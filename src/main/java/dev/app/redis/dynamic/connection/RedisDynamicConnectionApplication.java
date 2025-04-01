@@ -6,8 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class RedisDynamicConnectionApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(RedisDynamicConnectionApplication.class, args);
-    }
-
+  public static void main(String[] args) {
+    SpringApplication.run(RedisDynamicConnectionApplication.class, args);
+  }
 }

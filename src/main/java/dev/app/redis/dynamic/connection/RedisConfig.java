@@ -11,7 +11,6 @@ import io.lettuce.core.sentinel.api.StatefulRedisSentinelConnection;
 import io.lettuce.core.sentinel.api.sync.RedisSentinelCommands;
 import jakarta.annotation.PostConstruct;
 import java.net.SocketAddress;
-import java.util.Iterator;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.context.annotation.Bean;
@@ -55,11 +54,7 @@ public class RedisConfig {
         log.error("❌ No sentinel nodes found for Redis in VCAP_SERVICES");
         throw new RuntimeException("❌ Redis credentials missing in VCAP_SERVICES");
       }
-
-      Iterator<JsonNode> sentinels = sentinelsNode.iterator();
-
-      while (sentinels.hasNext()) {
-        JsonNode sentinel = sentinels.next();
+      for (JsonNode sentinel : sentinelsNode) {
         String host = sentinel.get("host").asText();
         int port = sentinel.get("port").asInt();
         String sentinelPassword = credentialsNode.get("sentinel_password").asText();
